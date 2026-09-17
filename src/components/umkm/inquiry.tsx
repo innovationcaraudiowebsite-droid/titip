@@ -60,6 +60,7 @@ const STEPS = [
 export default function Inquiry() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fallbackMailto, setFallbackMailto] = useState<string | null>(null);
 
   const {
     register,
@@ -71,6 +72,30 @@ export default function Inquiry() {
     defaultValues: { name: "", email: "", phone: "", organization: "", message: "" },
   });
 
+  // Jalur email langsung ke admin@umkm.id — dipakai sebagai cadangan bila
+  // server tidak dapat menerima penawaran (mis. database tidak tersedia).
+  const buildMailto = (values: InquiryFormValues): string => {
+    const subject = `Penawaran Domain UMKM.id — ${values.name}`;
+    const body = [
+      `Nama: ${values.name}`,
+      `Email: ${values.email}`,
+      values.phone ? `Telepon: ${values.phone}` : null,
+      values.organization
+        ? `Perusahaan/Organisasi: ${values.organization}`
+        : null,
+      "",
+      "Pesan:",
+      values.message,
+      "",
+      "— Dikirim melalui formulir di umkm.id",
+    ]
+      .filter((line): line is string => line !== null)
+      .join("\n");
+    return `mailto:admin@umkm.id?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+  };
+
   const onSubmit = async (values: InquiryFormValues) => {
     setIsSubmitting(true);
     try {
@@ -79,23 +104,27 @@ export default function Inquiry() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
-      const data = await res.json();
+      const data = await res.json().catch(() => null);
       if (!res.ok) {
+        if (res.status >= 500) {
+          setFallbackMailto(buildMailto(values));
+        }
         throw new Error(data?.error ?? "Terjadi kesalahan. Silakan coba lagi.");
       }
+      setFallbackMailto(null);
       toast({
         title: "Penawaran terkirim",
         description:
           "Terima kasih. Tim PT. IMKJ akan menghubungi Anda melalui email.",
       });
       reset();
-    } catch (error) {
+    } catch {
+      // Kesalahan jaringan/server: tawarkan jalur email langsung.
+      setFallbackMailto(buildMailto(values));
       toast({
         title: "Gagal mengirim",
         description:
-          error instanceof Error
-            ? error.message
-            : "Terjadi kesalahan. Silakan coba lagi.",
+          "Silakan gunakan tombol kirim email langsung di bawah formulir.",
         variant: "destructive",
       });
     } finally {
@@ -355,6 +384,30 @@ export default function Inquiry() {
                   </>
                 )}
               </Button>
+              {fallbackMailto && (
+                <div
+                  role="alert"
+                  className="mt-5 rounded-xl border border-primary/25 bg-primary/8 p-4 sm:p-5"
+                >
+                  <p className="text-sm font-semibold text-foreground">
+                    Pengiriman online sedang tidak tersedia.
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    Kirim penawaran Anda langsung ke email resmi kami — isi
+                    formulir sudah disiapkan otomatis.
+                  </p>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="mt-3 h-11 rounded-xl border-primary/40 bg-transparent text-sm font-semibold text-primary transition-all duration-300 hover:border-primary hover:bg-primary/10 hover:text-primary"
+                  >
+                    <a href={fallbackMailto}>
+                      <Mail className="size-4" />
+                      Kirim Email ke admin@umkm.id
+                    </a>
+                  </Button>
+                </div>
+              )}
               <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
                 Data Anda hanya digunakan untuk keperluan proses penawaran
                 UMKM.id dan tidak akan dibagikan kepada pihak lain.

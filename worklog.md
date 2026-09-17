@@ -113,3 +113,18 @@ Work Log:
 Stage Summary:
 - Stat hero kini: "4 Karakter saja". Commit lokal siap: 56b4d09 (+ c5ef261, 51aa71c dari Task 5) belum ter-push.
 - Push menunggu token GitHub baru dari user.
+
+---
+Task ID: 7
+Agent: Z.ai Code (main agent)
+Task: Analisa "apakah formulir bisa langsung kirim email ke admin@umkm.id" + push ke GitHub (token dari chat).
+
+Work Log:
+- Analisa: form saat ini TIDAK mengirim email — hanya menyimpan ke SQLite via /api/inquiry (dev). Di Vercel (tanpa DB) API mengembalikan 503 + pesan teks. Kirim email otomatis penuh butuh layanan email (Resend/SMTP) + kredensial user.
+- Solusi tanpa akun (diimplementasikan): fallback mailto di inquiry.tsx — bila submit gagal (status >=500 atau error jaringan), tampil kartu "Pengiriman online sedang tidak tersedia" + tombol "Kirim Email ke admin@umkm.id" (mailto dengan subject & body terisi otomatis: nama, email, telepon, organisasi, pesan). Success → fallback disembunyikan.
+- Verifikasi Agent Browser: (1) submit normal → POST 201, form reset, fallback tidak muncul; (2) route /api/inquiry di-abort (simulasi Vercel tanpa DB) → fallback muncul, href mailto:admin@umkm.id benar, body berisi semua field. Data tes dihapus dari DB.
+- Lint bersih. Token GitHub tidak pernah ditulis ke file/.git/config.
+
+Stage Summary:
+- Form kini selalu punya jalur ke admin@umkm.id: online (DB) atau fallback email via aplikasi email pengunjung.
+- Kirim email otomatis penuh (server-side) menunggu user memilih layanan (Resend disarankan; SMTP nodemailer alternatif).
