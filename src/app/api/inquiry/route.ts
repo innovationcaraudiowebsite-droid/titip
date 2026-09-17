@@ -38,16 +38,30 @@ export async function POST(request: NextRequest) {
 
     const { name, email, phone, organization, message } = parsed.data;
 
-    const inquiry = await db.inquiry.create({
-      data: {
-        name,
-        email,
-        phone: phone || null,
-        organization: organization || null,
-        message,
-      },
-      select: { id: true, createdAt: true },
-    });
+    let inquiry;
+    try {
+      inquiry = await db.inquiry.create({
+        data: {
+          name,
+          email,
+          phone: phone || null,
+          organization: organization || null,
+          message,
+        },
+        select: { id: true, createdAt: true },
+      });
+    } catch (dbError) {
+      // Database tidak tersedia (mis. lingkungan serverless tanpa SQLite).
+      console.error("[POST /api/inquiry] Database unavailable:", dbError);
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            "Layanan penawaran online sedang tidak tersedia. Silakan hubungi kami langsung di admin@umkm.id.",
+        },
+        { status: 503 }
+      );
+    }
 
     return NextResponse.json({ ok: true, data: inquiry }, { status: 201 });
   } catch (error) {
