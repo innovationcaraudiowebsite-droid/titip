@@ -98,7 +98,7 @@ export default function Hero() {
             <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/60">
               Harga Penawaran
             </span>
-            <span className="text-red-gradient-bright font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+            <span className="text-red-gradient-bright font-display text-[2.1rem] font-bold tracking-tight sm:text-5xl md:text-[4.5rem]">
               Rp1.000.000.000
             </span>
             <span className="font-display text-base italic text-white/55 sm:text-lg">

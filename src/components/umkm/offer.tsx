@@ -47,7 +47,7 @@ function CountUpPrice() {
   return (
     <span
       ref={ref}
-      className="text-red-gradient-bright font-display text-[clamp(2.5rem,9vw,5.5rem)] font-bold leading-tight tracking-tight"
+      className="text-red-gradient-bright font-display text-[clamp(1.9rem,8vw,6rem)] font-bold leading-tight tracking-tight"
     >
       Rp{display}
     </span>
@@ -77,7 +77,7 @@ export default function Offer() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-4xl">
+      <div className="relative mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
