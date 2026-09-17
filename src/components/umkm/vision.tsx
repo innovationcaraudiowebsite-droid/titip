@@ -46,7 +46,7 @@ export default function Vision() {
       className="relative scroll-mt-20 overflow-hidden px-4 py-24 sm:px-6 md:py-32"
     >
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_45%_50%_at_10%_60%,oklch(0.8_0.135_82/0.05),transparent_70%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_45%_50%_at_10%_60%,oklch(0.54_0.21_27/0.04),transparent_70%)]"
         aria-hidden="true"
       />
       <div className="relative mx-auto max-w-6xl">
@@ -61,7 +61,7 @@ export default function Vision() {
             Visi & Fleksibilitas
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-            Bukan Sekadar <span className="text-gold-gradient">Domain</span>
+            Bukan Sekadar <span className="text-red-gradient">Domain</span>
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
             Bayangkan sebuah platform digital yang menjadi pintu masuk bagi
@@ -83,10 +83,10 @@ export default function Vision() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="gold-frame relative overflow-hidden rounded-2xl">
+            <div className="brand-frame relative overflow-hidden rounded-2xl">
               <Image
                 src="/images/umkm-vision.jpg"
-                alt="Para pelaku UMKM Indonesia di pasar tradisional dengan smartphone, tersenyum penuh harapan di bawah cahaya keemasan"
+                alt="Pengusaha UMKM Indonesia tersenyum percaya diri di pasar tradisional yang ramai dengan tenda merah putih"
                 width={1344}
                 height={768}
                 className="h-auto w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
@@ -109,7 +109,7 @@ export default function Vision() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="gold-frame mt-0 rounded-2xl bg-card/90 p-5 backdrop-blur-md sm:-mt-10 sm:ml-8 sm:p-6"
+              className="brand-frame mt-0 rounded-2xl bg-card/90 p-5 backdrop-blur-md sm:-mt-10 sm:ml-8 sm:p-6"
             >
               <Quote className="size-5 text-primary" aria-hidden="true" />
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

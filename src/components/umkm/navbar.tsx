@@ -46,7 +46,7 @@ export default function Navbar() {
           <span className="font-display text-xl font-bold tracking-tight text-foreground md:text-2xl">
             UMKM
           </span>
-          <span className="text-gold-gradient font-display text-xl font-bold tracking-tight md:text-2xl">
+          <span className="text-red-gradient font-display text-xl font-bold tracking-tight md:text-2xl">
             .id
           </span>
         </a>

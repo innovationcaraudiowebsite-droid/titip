@@ -38,7 +38,7 @@ export default function ValueProps() {
   return (
     <section id="nilai" className="relative scroll-mt-20 px-4 py-24 sm:px-6 md:py-32">
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_20%,oklch(0.8_0.135_82/0.06),transparent_70%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_85%_20%,oklch(0.54_0.21_27/0.05),transparent_70%)]"
         aria-hidden="true"
       />
       <div className="relative mx-auto max-w-6xl">
@@ -54,7 +54,7 @@ export default function ValueProps() {
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Mengapa UMKM.id{" "}
-            <span className="text-gold-gradient">Bernilai Premium?</span>
+            <span className="text-red-gradient">Bernilai Premium?</span>
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
             Nama domain yang kuat bukan sekadar alamat website. Dalam ekosistem
@@ -100,7 +100,7 @@ export default function ValueProps() {
               </div>
 
               <div
-                className="gold-hairline absolute inset-x-0 bottom-0 origin-left scale-x-0 transition-transform duration-700 group-hover:scale-x-100"
+                className="brand-hairline absolute inset-x-0 bottom-0 origin-left scale-x-0 transition-transform duration-700 group-hover:scale-x-100"
                 aria-hidden="true"
               />
             </motion.article>

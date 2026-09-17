@@ -36,20 +36,20 @@ export default function Hero() {
       {/* Decorative background layers */}
       <div className="bg-grid absolute inset-0" aria-hidden="true" />
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_60%_45%_at_50%_28%,oklch(0.8_0.135_82/0.14),transparent_70%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_60%_45%_at_50%_28%,oklch(0.54_0.21_27/0.1),transparent_70%)]"
         aria-hidden="true"
       />
       <div
         className="absolute -top-32 left-1/2 h-72 w-[42rem] max-w-full -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]"
         aria-hidden="true"
       />
-      {/* Floating gold particles */}
+      {/* Floating red particles */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <span className="animate-float-slow absolute left-[12%] top-[30%] size-1.5 rounded-full bg-primary/70 blur-[1px]" />
         <span className="animate-float-slow absolute right-[16%] top-[24%] size-2 rounded-full bg-primary/50 blur-[1px] [animation-delay:1.2s]" />
         <span className="animate-float-slow absolute left-[24%] bottom-[26%] size-2.5 rounded-full bg-primary/40 blur-[2px] [animation-delay:2.1s]" />
         <span className="animate-float-slow absolute right-[26%] bottom-[32%] size-1.5 rounded-full bg-primary/60 blur-[1px] [animation-delay:3s]" />
-        <span className="animate-float-slow absolute left-[45%] top-[18%] size-1 rounded-full bg-gold-light/70 blur-[1px] [animation-delay:1.8s]" />
+        <span className="animate-float-slow absolute left-[45%] top-[18%] size-1 rounded-full bg-red-light/70 blur-[1px] [animation-delay:1.8s]" />
       </div>
 
       <motion.div
@@ -67,7 +67,7 @@ export default function Hero() {
 
         <motion.h1
           variants={item}
-          className="text-gold-gradient mt-8 font-display text-[clamp(3.4rem,14vw,9rem)] font-bold leading-[0.95] tracking-tight"
+          className="text-red-gradient mt-8 font-display text-[clamp(3.4rem,14vw,9rem)] font-bold leading-[0.95] tracking-tight"
         >
           UMKM<span className="font-normal">.</span>id
         </motion.h1>
@@ -94,11 +94,11 @@ export default function Hero() {
         </motion.p>
 
         <motion.div variants={item} className="mt-10">
-          <div className="gold-frame flex flex-col items-center gap-1 rounded-2xl px-8 py-5 sm:px-12">
+          <div className="brand-frame flex flex-col items-center gap-1 rounded-2xl px-8 py-5 sm:px-12">
             <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
               Harga Penawaran
             </span>
-            <span className="text-gold-gradient font-display text-3xl font-bold tracking-tight sm:text-4xl">
+            <span className="text-red-gradient font-display text-3xl font-bold tracking-tight sm:text-4xl">
               Rp1.000.000.000
             </span>
             <span className="font-display text-sm italic text-muted-foreground">
@@ -143,7 +143,7 @@ export default function Hero() {
               key={stat.label}
               className="flex flex-col items-center gap-1.5 border-l border-primary/15 px-2 first:border-l-0 sm:border-l sm:first:border-l-0"
             >
-              <span className="text-gold-gradient font-display text-2xl font-bold sm:text-3xl">
+              <span className="text-red-gradient font-display text-2xl font-bold sm:text-3xl">
                 {stat.value}
               </span>
               <span className="text-center text-xs leading-snug text-muted-foreground">

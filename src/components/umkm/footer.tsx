@@ -13,7 +13,7 @@ export default function Footer() {
             <span className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
               UMKM
             </span>
-            <span className="text-gold-gradient font-display text-4xl font-bold tracking-tight sm:text-5xl">
+            <span className="text-red-gradient font-display text-4xl font-bold tracking-tight sm:text-5xl">
               .id
             </span>
           </a>
@@ -39,7 +39,7 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="gold-hairline mt-12" aria-hidden="true" />
+        <div className="brand-hairline mt-12" aria-hidden="true" />
 
         <div className="mt-6 flex flex-col items-center justify-between gap-3 pb-2 text-center text-xs text-muted-foreground sm:flex-row sm:text-left">
           <p>

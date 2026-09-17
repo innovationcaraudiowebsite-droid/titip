@@ -47,7 +47,7 @@ function CountUpPrice() {
   return (
     <span
       ref={ref}
-      className="text-gold-gradient font-display text-[clamp(2.4rem,8vw,5rem)] font-bold leading-tight tracking-tight"
+      className="text-red-gradient font-display text-[clamp(2.4rem,8vw,5rem)] font-bold leading-tight tracking-tight"
     >
       Rp{display}
     </span>
@@ -65,7 +65,7 @@ export default function Offer() {
         className="absolute inset-0 opacity-[0.16]"
         aria-hidden="true"
         style={{
-          backgroundImage: "url(/images/gold-abstract.jpg)",
+          backgroundImage: "url(/images/red-abstract.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           maskImage:
@@ -73,7 +73,7 @@ export default function Offer() {
         }}
       />
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_50%,transparent_40%,oklch(0.125_0.008_80/0.9)_100%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_50%,transparent_40%,oklch(0.99_0.003_40/0.92)_100%)]"
         aria-hidden="true"
       />
 
@@ -89,7 +89,7 @@ export default function Offer() {
             Penawaran Akuisisi
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-            Miliki <span className="text-gold-gradient">UMKM.id</span>
+            Miliki <span className="text-red-gradient">UMKM.id</span>
           </h2>
         </motion.div>
 
@@ -98,13 +98,13 @@ export default function Offer() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="gold-frame relative mt-12 overflow-hidden rounded-3xl bg-card/70 p-8 text-center backdrop-blur-md sm:p-12 md:p-16"
+          className="brand-frame relative mt-12 overflow-hidden rounded-3xl bg-card/70 p-8 text-center backdrop-blur-md sm:p-12 md:p-16"
         >
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.07]"
             aria-hidden="true"
             style={{
-              backgroundImage: "url(/images/gold-abstract.jpg)",
+              backgroundImage: "url(/images/red-abstract.jpg)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -127,7 +127,7 @@ export default function Offer() {
               </span>
             </div>
 
-            <div className="gold-hairline mt-8 w-40" aria-hidden="true" />
+            <div className="brand-hairline mt-8 w-40" aria-hidden="true" />
 
             <p className="mt-8 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
               Harga Penawaran
@@ -139,7 +139,7 @@ export default function Offer() {
               Satu Miliar Rupiah
             </p>
 
-            <div className="gold-hairline mt-8 w-40" aria-hidden="true" />
+            <div className="brand-hairline mt-8 w-40" aria-hidden="true" />
 
             <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
               Penawaran ditujukan kepada pihak yang memiliki visi membangun{" "}

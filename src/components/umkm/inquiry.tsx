@@ -109,7 +109,7 @@ export default function Inquiry() {
       className="relative scroll-mt-20 px-4 py-24 sm:px-6 md:py-32"
     >
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_50%_45%_at_15%_30%,oklch(0.8_0.135_82/0.06),transparent_70%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_50%_45%_at_15%_30%,oklch(0.54_0.21_27/0.04),transparent_70%)]"
         aria-hidden="true"
       />
       <div className="relative mx-auto max-w-6xl">
@@ -125,7 +125,7 @@ export default function Inquiry() {
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Berminat Mengakuisisi{" "}
-            <span className="text-gold-gradient">UMKM.id?</span>
+            <span className="text-red-gradient">UMKM.id?</span>
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
             Untuk informasi lebih lanjut mengenai proses penawaran, negosiasi,
@@ -142,7 +142,7 @@ export default function Inquiry() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col gap-6 lg:col-span-2"
           >
-            <div className="gold-frame rounded-2xl bg-card/70 p-6 backdrop-blur-sm sm:p-7">
+            <div className="brand-frame rounded-2xl bg-card/70 p-6 backdrop-blur-sm sm:p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
                 Hubungi
               </p>
@@ -213,7 +213,7 @@ export default function Inquiry() {
             <form
               onSubmit={handleSubmit(onSubmit)}
               noValidate
-              className="gold-frame rounded-2xl bg-card/70 p-6 backdrop-blur-sm sm:p-8"
+              className="brand-frame rounded-2xl bg-card/70 p-6 backdrop-blur-sm sm:p-8"
               aria-label="Formulir penawaran akuisisi domain"
             >
               <h3 className="font-display text-xl font-semibold text-foreground sm:text-2xl">
