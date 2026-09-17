@@ -81,3 +81,21 @@ Stage Summary:
 - Repo GitHub: https://github.com/innovationcaraudiowebsite-droid/titip (branch main, up to date).
 - Project siap di-import ke Vercel (zero config). Catatan: fitur simpan penawaran butuh database terkelola (mis. Turso/Postgres) di produksi; tanpa itu, API mengembalikan 503 dengan pesan kontak email.
 - Rekomendasi keamanan: rotate GitHub token karena dibagikan lewat chat.
+
+---
+Task ID: 5
+Agent: Z.ai Code (main agent)
+Task: Feedback harga penawaran — "kurang besar", style dikembalikan seperti awal (merah putih tetap).
+
+Work Log:
+- Investigasi git history (28c7f6e → 3ad7f2d): struktur kartu harga tidak pernah berubah; yang hilang pasca-rebrand adalah feel premium versi awal (panel gelap + teks gradient menyala + bingkai sertifikat).
+- globals.css: tambah `.text-red-gradient-bright` (gradient merah-putih menyala, sweep merah→putih→merah + drop-shadow glow, animasi red-shine) dan `.plaque-dark` (plakat gelap warm-dark, bingkai gradasi merah terang, box-shadow glow; compose dengan .brand-frame sehingga 3 pemakaian brand-frame lain di inquiry/vision tetap terang).
+- hero.tsx: kartu harga jadi plakat gelap; harga `text-4xl` → `text-[2.1rem] sm:text-5xl md:text-[4.5rem]` (desktop 36px → 72px, 2x lebih besar); label/subjudul putih transparan.
+- offer.tsx: kartu sertifikat jadi plakat gelap (bg-card/70 & backdrop-blur dihapus); count-up `clamp(2.4rem,8vw,5rem)` → `clamp(1.9rem,8vw,6rem)` (desktop 80px → 96px); kontainer max-w-4xl → max-w-5xl; Domain/Status/paragraf/chips/hairline diadaptasi ke teks putih & red-light; 2 brand-hairline diganti gradient merah terang (dark-friendly).
+- Troubleshooting: render pertama tampak kartu putih — chunk CSS Turbopack stale (b5aa4ea1, isu sama seperti Task 3); fix `rm -rf .next` + restart dev server.
+- Responsif diverifikasi Agent Browser: fit ukuran teks harga di 320/375/390px (ok:true semua, single-line) dan desktop 1280px; screenshot hero/offer mobile+desktop; console bersih; lint bersih.
+- Commit 51aa71c (+auto dc37857). Push ke GitHub GAGAL: kredensial tidak tersimpan (token Task 4 sengaja tidak disimpan) → butuh token/URL baru dari user.
+
+Stage Summary:
+- Tampilan harga kembali premium seperti desain awal: plakat gelap + harga gradient menyala + bingkai ganda — kini dalam merah putih, dengan angka 2x lebih besar di desktop.
+- Menunggu token GitHub dari user untuk push (remote origin sudah benar: innovationcaraudiowebsite-droid/titip).
