@@ -1,0 +1,181 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { BadgeCheck, ArrowUpRight, Gem } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const AUDIENCES = [
+  "Perusahaan",
+  "Investor",
+  "Institusi",
+  "Startup",
+  "Marketplace",
+  "Organisasi",
+];
+
+function formatRupiah(value: number): string {
+  return new Intl.NumberFormat("id-ID", {
+    maximumFractionDigits: 0,
+  }).format(Math.round(value));
+}
+
+function CountUpPrice() {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const [display, setDisplay] = useState("0");
+
+  useEffect(() => {
+    if (!inView) return;
+    const duration = 2200;
+    const start = performance.now();
+    let rafId: number;
+
+    const tick = (now: number) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // easeOutExpo for a dramatic finish
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      setDisplay(formatRupiah(eased * 1_000_000_000));
+      if (progress < 1) rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, [inView]);
+
+  return (
+    <span
+      ref={ref}
+      className="text-gold-gradient font-display text-[clamp(2.4rem,8vw,5rem)] font-bold leading-tight tracking-tight"
+    >
+      Rp{display}
+    </span>
+  );
+}
+
+export default function Offer() {
+  return (
+    <section
+      id="penawaran"
+      className="relative scroll-mt-20 overflow-hidden px-4 py-24 sm:px-6 md:py-32"
+    >
+      {/* Gold waves backdrop */}
+      <div
+        className="absolute inset-0 opacity-[0.16]"
+        aria-hidden="true"
+        style={{
+          backgroundImage: "url(/images/gold-abstract.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          maskImage:
+            "radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_50%,transparent_40%,oklch(0.125_0.008_80/0.9)_100%)]"
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto max-w-4xl">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center"
+        >
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
+            Penawaran Akuisisi
+          </span>
+          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+            Miliki <span className="text-gold-gradient">UMKM.id</span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="gold-frame relative mt-12 overflow-hidden rounded-3xl bg-card/70 p-8 text-center backdrop-blur-md sm:p-12 md:p-16"
+        >
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.07]"
+            aria-hidden="true"
+            style={{
+              backgroundImage: "url(/images/gold-abstract.jpg)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+
+          <div className="relative flex flex-col items-center">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm">
+              <span className="inline-flex items-center gap-2 text-muted-foreground">
+                <span className="font-semibold text-foreground">Domain:</span>
+                <span className="font-display font-bold text-primary">
+                  UMKM.id
+                </span>
+              </span>
+              <span className="inline-flex items-center gap-2 text-muted-foreground">
+                <span className="font-semibold text-foreground">Status:</span>
+                <span className="inline-flex items-center gap-1.5 font-semibold text-primary">
+                  <BadgeCheck className="size-4" />
+                  Domain Premium
+                </span>
+              </span>
+            </div>
+
+            <div className="gold-hairline mt-8 w-40" aria-hidden="true" />
+
+            <p className="mt-8 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+              Harga Penawaran
+            </p>
+            <div className="mt-3">
+              <CountUpPrice />
+            </div>
+            <p className="mt-3 font-display text-lg italic text-muted-foreground sm:text-xl">
+              Satu Miliar Rupiah
+            </p>
+
+            <div className="gold-hairline mt-8 w-40" aria-hidden="true" />
+
+            <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Penawaran ditujukan kepada pihak yang memiliki visi membangun{" "}
+              <span className="font-semibold text-foreground">
+                brand digital berskala nasional di bidang UMKM
+              </span>
+              . Akuisisi domain dapat menjadi langkah strategis untuk memiliki
+              identitas digital yang sederhana, relevan, dan berpotensi
+              dikembangkan dalam jangka panjang.
+            </p>
+
+            <ul className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
+              {AUDIENCES.map((audience) => (
+                <li
+                  key={audience}
+                  className="rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-medium text-primary/95 sm:text-sm"
+                >
+                  {audience}
+                </li>
+              ))}
+            </ul>
+
+            <Button
+              asChild
+              size="lg"
+              className="mt-10 h-13 rounded-full bg-primary px-10 text-base font-semibold text-primary-foreground shadow-[0_8px_40px_-8px] shadow-primary/60 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_48px_-6px] hover:shadow-primary/70"
+            >
+              <a href="#kontak">
+                <Gem className="size-4.5" />
+                Hubungi PT. IMKJ
+                <ArrowUpRight className="size-4.5" />
+              </a>
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}

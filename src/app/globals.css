@@ -1,0 +1,219 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-jakarta);
+  --font-mono: var(--font-jakarta);
+  --font-display: var(--font-playfair);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-deep: var(--gold-deep);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/*
+  UMKM.id — Luxury dark-gold theme (deliberately dark-only design
+  for a premium digital asset sales page).
+*/
+:root {
+  --radius: 0.75rem;
+  --gold: oklch(0.8 0.135 82);
+  --gold-light: oklch(0.89 0.095 88);
+  --gold-deep: oklch(0.66 0.125 72);
+
+  --background: oklch(0.125 0.008 80);
+  --foreground: oklch(0.96 0.012 90);
+  --card: oklch(0.163 0.009 78);
+  --card-foreground: oklch(0.96 0.012 90);
+  --popover: oklch(0.163 0.009 78);
+  --popover-foreground: oklch(0.96 0.012 90);
+  --primary: oklch(0.8 0.135 82);
+  --primary-foreground: oklch(0.16 0.02 80);
+  --secondary: oklch(0.21 0.01 80);
+  --secondary-foreground: oklch(0.96 0.012 90);
+  --muted: oklch(0.21 0.01 80);
+  --muted-foreground: oklch(0.68 0.014 85);
+  --accent: oklch(0.24 0.02 82);
+  --accent-foreground: oklch(0.93 0.05 85);
+  --destructive: oklch(0.62 0.2 25);
+  --border: oklch(0.9 0.02 85 / 10%);
+  --input: oklch(0.9 0.02 85 / 14%);
+  --ring: oklch(0.8 0.135 82 / 55%);
+  --chart-1: oklch(0.8 0.135 82);
+  --chart-2: oklch(0.72 0.11 60);
+  --chart-3: oklch(0.88 0.09 90);
+  --chart-4: oklch(0.6 0.09 45);
+  --chart-5: oklch(0.55 0.05 70);
+  --sidebar: oklch(0.145 0.008 80);
+  --sidebar-foreground: oklch(0.96 0.012 90);
+  --sidebar-primary: oklch(0.8 0.135 82);
+  --sidebar-primary-foreground: oklch(0.16 0.02 80);
+  --sidebar-accent: oklch(0.21 0.01 80);
+  --sidebar-accent-foreground: oklch(0.96 0.012 90);
+  --sidebar-border: oklch(0.9 0.02 85 / 10%);
+  --sidebar-ring: oklch(0.8 0.135 82 / 55%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01" on, "cv11" on;
+  }
+  ::selection {
+    background: oklch(0.8 0.135 82 / 30%);
+    color: oklch(0.97 0.02 90);
+  }
+}
+
+/* ---------- Custom scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.125 0.008 80);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.36 0.04 80);
+  border-radius: 8px;
+  border: 2px solid oklch(0.125 0.008 80);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.55 0.08 80);
+}
+
+/* ---------- Signature gold gradient text ---------- */
+.text-gold-gradient {
+  background: linear-gradient(
+    115deg,
+    oklch(0.9 0.08 90) 0%,
+    oklch(0.86 0.12 85) 25%,
+    oklch(0.72 0.13 72) 50%,
+    oklch(0.88 0.1 85) 75%,
+    oklch(0.94 0.06 92) 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shine 7s linear infinite;
+}
+
+@keyframes gold-shine {
+  to {
+    background-position: 220% center;
+  }
+}
+
+/* ---------- Decorative backgrounds ---------- */
+.bg-grid {
+  background-image:
+    linear-gradient(oklch(0.9 0.02 85 / 4%) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.9 0.02 85 / 4%) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, black 30%, transparent 75%);
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  opacity: 0.05;
+}
+
+/* ---------- Floating gold particles ---------- */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(-26px) translateX(10px);
+    opacity: 1;
+  }
+}
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.8 0.135 82 / 45%);
+  }
+  50% {
+    box-shadow: 0 0 0 7px oklch(0.8 0.135 82 / 0%);
+  }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2.4s ease-in-out infinite;
+}
+
+/* ---------- Double gold frame (certificate card) ---------- */
+.gold-frame {
+  position: relative;
+  background:
+    linear-gradient(oklch(0.155 0.01 78), oklch(0.155 0.01 78)) padding-box,
+    linear-gradient(135deg, oklch(0.75 0.12 80 / 60%), oklch(0.45 0.06 75 / 25%), oklch(0.8 0.13 82 / 70%)) border-box;
+  border: 1px solid transparent;
+}
+.gold-frame::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid oklch(0.75 0.12 80 / 22%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ---------- Hairline gold divider ---------- */
+.gold-hairline {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(0.75 0.12 80 / 55%),
+    transparent
+  );
+  height: 1px;
+}
