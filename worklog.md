@@ -63,3 +63,21 @@ Stage Summary:
 - Visual identity now: merah putih (Indonesian national brand), formal serif display (Libre Baskerville) + formal sans body (Source Sans 3), light theme.
 - Reusable theme utilities renamed to brand-neutral names (`.text-red-gradient`, `.brand-frame`, `.brand-hairline`).
 - Fullstack inquiry flow re-verified on the new theme.
+
+---
+Task ID: 4
+Agent: Z.ai Code (main agent)
+Task: Push project ke GitHub (innovationcaraudiowebsite-droid/titip.git) agar siap di-deploy ke Vercel.
+
+Work Log:
+- Git repo sudah ada (branch main, auto-commit oleh environment); tidak ada remote.
+- Persiapan Vercel: build script disederhanakan menjadi `next build` (menghapus langkah cp standalone), `start` → `next start`, `output: "standalone"` dihapus dari next.config.ts, ditambah `"postinstall": "prisma generate"` agar Prisma client ter-generate saat build di Vercel.
+- API `/api/inquiry`: db.inquiry.create dibungkus try/catch terpisah → 503 dengan pesan Indonesia + saran email (admin@umkm.id) jika DB tidak tersedia (SQLite tidak bisa menulis di serverless Vercel).
+- Menambah `.env.example`; untrack `.env` dan `db/custom.db` (sebelumnya ter-track dari scaffold), `.gitignore` + `db/*.db`.
+- Commit 2x, push ke `main` memakai token GitHub via one-time URL (token TIDAK disimpan di .git/config, TIDAK masuk repo). Verifikasi: remote `main` = 9589105, repo bersih dari .env/db lokal (97 file).
+- Verifikasi lokal pasca perubahan: lint bersih, HTTP 200, POST /api/inquiry 201.
+
+Stage Summary:
+- Repo GitHub: https://github.com/innovationcaraudiowebsite-droid/titip (branch main, up to date).
+- Project siap di-import ke Vercel (zero config). Catatan: fitur simpan penawaran butuh database terkelola (mis. Turso/Postgres) di produksi; tanpa itu, API mengembalikan 503 dengan pesan kontak email.
+- Rekomendasi keamanan: rotate GitHub token karena dibagikan lewat chat.
