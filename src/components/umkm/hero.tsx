@@ -5,7 +5,7 @@ import { ArrowRight, ChevronDown, Gem } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const STATS = [
-  { value: "7", label: "Karakter saja" },
+  { value: "4", label: "Karakter saja" },
   { value: "64 Jt+", label: "Pelaku UMKM Indonesia" },
   { value: ".id", label: "Identitas domain nasional" },
   { value: "No. 1", label: "Nama sektor di Nusantara" },
