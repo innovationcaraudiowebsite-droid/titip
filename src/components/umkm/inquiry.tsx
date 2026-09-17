@@ -53,7 +53,7 @@ const STEPS = [
     icon: ShieldCheck,
     title: "Transaksi Aman",
     description:
-      "Proses transfer domain dilakukan melalui mekanisme escrow yang aman.",
+      "Proses transfer domain dilakukan melalui notaris.",
   },
 ];
 

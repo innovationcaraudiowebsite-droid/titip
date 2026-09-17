@@ -29,3 +29,17 @@ Stage Summary:
 - Dark-gold premium design language established in `globals.css` (reusable `.text-gold-gradient`, `.gold-frame`).
 - Working end-to-end inquiry pipeline: form → `/api/inquiry` → SQLite `Inquiry` table (test records cleaned afterward).
 - All sections verified in browser on desktop and mobile; lint clean; dev server healthy (HTTP 200).
+
+---
+Task ID: 2
+Agent: Z.ai Code (main agent)
+Task: Copy revision — replace escrow wording with notaris in the "Alur Akuisisi" step 3 ("Transaksi Aman").
+
+Work Log:
+- Located the single occurrence of "escrow" in `src/components/umkm/inquiry.tsx` (STEPS array).
+- Changed step 3 description from "Proses transfer domain dilakukan melalui mekanisme escrow yang aman." to "Proses transfer domain dilakukan melalui notaris."
+- Verified in Agent Browser (scrolled to #kontak / Alur Akuisisi) — new text renders correctly; lint passed; cleaned up verification screenshots.
+
+Stage Summary:
+- Acquisition flow step 3 now reads: "Proses transfer domain dilakukan melalui notaris."
+- No other references to escrow remain in the codebase.
