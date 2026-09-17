@@ -47,7 +47,7 @@ function CountUpPrice() {
   return (
     <span
       ref={ref}
-      className="text-red-gradient font-display text-[clamp(2.4rem,8vw,5rem)] font-bold leading-tight tracking-tight"
+      className="text-red-gradient-bright font-display text-[clamp(2.5rem,9vw,5.5rem)] font-bold leading-tight tracking-tight"
     >
       Rp{display}
     </span>
@@ -98,7 +98,7 @@ export default function Offer() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="brand-frame relative mt-12 overflow-hidden rounded-3xl bg-card/70 p-8 text-center backdrop-blur-md sm:p-12 md:p-16"
+          className="brand-frame plaque-dark relative mt-12 overflow-hidden rounded-3xl p-8 text-center sm:p-12 md:p-16"
         >
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.07]"
@@ -112,38 +112,44 @@ export default function Offer() {
 
           <div className="relative flex flex-col items-center">
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm">
-              <span className="inline-flex items-center gap-2 text-muted-foreground">
-                <span className="font-semibold text-foreground">Domain:</span>
-                <span className="font-display font-bold text-primary">
+              <span className="inline-flex items-center gap-2 text-white/60">
+                <span className="font-semibold text-white">Domain:</span>
+                <span className="font-display font-bold text-red-light">
                   UMKM.id
                 </span>
               </span>
-              <span className="inline-flex items-center gap-2 text-muted-foreground">
-                <span className="font-semibold text-foreground">Status:</span>
-                <span className="inline-flex items-center gap-1.5 font-semibold text-primary">
+              <span className="inline-flex items-center gap-2 text-white/60">
+                <span className="font-semibold text-white">Status:</span>
+                <span className="inline-flex items-center gap-1.5 font-semibold text-red-light">
                   <BadgeCheck className="size-4" />
                   Domain Premium
                 </span>
               </span>
             </div>
 
-            <div className="brand-hairline mt-8 w-40" aria-hidden="true" />
+            <div
+              className="mt-8 h-px w-40 bg-[linear-gradient(90deg,transparent,oklch(0.72_0.18_30/60%),transparent)]"
+              aria-hidden="true"
+            />
 
-            <p className="mt-8 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+            <p className="mt-8 text-xs font-semibold uppercase tracking-[0.28em] text-white/60">
               Harga Penawaran
             </p>
             <div className="mt-3">
               <CountUpPrice />
             </div>
-            <p className="mt-3 font-display text-lg italic text-muted-foreground sm:text-xl">
+            <p className="mt-3 font-display text-xl italic text-white/60 sm:text-2xl">
               Satu Miliar Rupiah
             </p>
 
-            <div className="brand-hairline mt-8 w-40" aria-hidden="true" />
+            <div
+              className="mt-8 h-px w-40 bg-[linear-gradient(90deg,transparent,oklch(0.72_0.18_30/60%),transparent)]"
+              aria-hidden="true"
+            />
 
-            <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <p className="mt-8 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
               Penawaran ditujukan kepada pihak yang memiliki visi membangun{" "}
-              <span className="font-semibold text-foreground">
+              <span className="font-semibold text-white">
                 brand digital berskala nasional di bidang UMKM
               </span>
               . Akuisisi domain dapat menjadi langkah strategis untuk memiliki
@@ -155,7 +161,7 @@ export default function Offer() {
               {AUDIENCES.map((audience) => (
                 <li
                   key={audience}
-                  className="rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-medium text-primary/95 sm:text-sm"
+                  className="rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-medium text-white/85 sm:text-sm"
                 >
                   {audience}
                 </li>

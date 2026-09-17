@@ -94,14 +94,14 @@ export default function Hero() {
         </motion.p>
 
         <motion.div variants={item} className="mt-10">
-          <div className="brand-frame flex flex-col items-center gap-1 rounded-2xl px-8 py-5 sm:px-12">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+          <div className="brand-frame plaque-dark flex flex-col items-center gap-1.5 rounded-2xl px-5 py-6 sm:px-14">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/60">
               Harga Penawaran
             </span>
-            <span className="text-red-gradient font-display text-3xl font-bold tracking-tight sm:text-4xl">
+            <span className="text-red-gradient-bright font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
               Rp1.000.000.000
             </span>
-            <span className="font-display text-sm italic text-muted-foreground">
+            <span className="font-display text-base italic text-white/55 sm:text-lg">
               satu miliar rupiah
             </span>
           </div>
