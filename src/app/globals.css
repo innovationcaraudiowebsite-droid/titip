@@ -208,6 +208,48 @@
   animation: pulse-glow 2.4s ease-in-out infinite;
 }
 
+/* ---------- Hero badge: shimmering red text ---------- */
+.text-shimmer-red {
+  background: linear-gradient(
+    110deg,
+    oklch(0.5 0.22 27) 25%,
+    oklch(0.68 0.2 30) 45%,
+    oklch(0.44 0.18 27) 65%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: red-shine 3.2s linear infinite;
+}
+
+/* ---------- Hero badge: light sweep across the pill ---------- */
+@keyframes badge-shine {
+  0% {
+    transform: translateX(-120%);
+  }
+  60%,
+  100% {
+    transform: translateX(220%);
+  }
+}
+.animate-badge-shine {
+  animation: badge-shine 3.4s ease-in-out infinite;
+}
+
+/* ---------- Corner ribbon: light sweep ---------- */
+@keyframes ribbon-shine {
+  0% {
+    background-position: 220% 0;
+  }
+  100% {
+    background-position: -220% 0;
+  }
+}
+.animate-ribbon-shine {
+  animation: ribbon-shine 2.8s ease-in-out infinite;
+}
+
 /* ---------- Double red frame (certificate card) ---------- */
 .brand-frame {
   position: relative;

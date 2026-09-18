@@ -59,10 +59,20 @@ export default function Hero() {
         className="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center"
       >
         <motion.div variants={item}>
-          <span className="inline-flex items-center gap-2.5 rounded-full border border-primary/25 bg-primary/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary backdrop-blur-sm sm:text-[13px]">
-            <span className="animate-pulse-glow inline-block size-2 rounded-full bg-primary" />
-            Domain Premium · Tersedia untuk Akuisisi
-          </span>
+          <motion.span
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
+            className="relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-primary/30 bg-primary/10 px-5 py-2.5 text-sm font-bold uppercase tracking-[0.14em] text-primary shadow-[0_0_36px_-10px] shadow-primary/50 backdrop-blur-sm sm:px-7 sm:py-3 sm:text-base md:text-lg"
+          >
+            <span className="animate-pulse-glow inline-block size-2.5 rounded-full bg-primary sm:size-3" />
+            <span className="text-shimmer-red">
+              Domain Premium · Tersedia untuk Akuisisi
+            </span>
+            <span
+              className="animate-badge-shine pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-[linear-gradient(110deg,transparent,oklch(1_0_0/0.4),transparent)]"
+              aria-hidden="true"
+            />
+          </motion.span>
         </motion.div>
 
         <motion.h1

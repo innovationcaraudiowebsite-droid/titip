@@ -16,41 +16,77 @@ const baskerville = Libre_Baskerville({
   style: ["normal", "italic"],
 });
 
+const SITE_URL = "https://umkm.id";
+
 export const metadata: Metadata = {
-  title: "UMKM.id — Domain Premium untuk Ekosistem UMKM Indonesia",
+  metadataBase: new URL(SITE_URL),
+  title: "UMKM.id Dijual — Domain Premium 1 Milyar Rupiah | PT. IMKJ",
   description:
-    "UMKM.id adalah domain premium yang merepresentasikan ekosistem Usaha Mikro, Kecil, dan Menengah Indonesia. Satu Nama. Satu Identitas. Potensi Digital yang Besar. Ditawarkan seharga 1 Milyar Rupiah.",
+    "Domain premium UMKM.id DIJUAL (domain for sale). Nama pendek 4 karakter untuk ekosistem UMKM Indonesia — 64 juta+ pelaku usaha. Ditawarkan 1 Milyar Rupiah, transaksi aman melalui notaris. Hubungi PT. IMKJ: admin@umkm.id.",
   keywords: [
     "UMKM.id",
+    "domain UMKM.id dijual",
+    "domain for sale",
     "domain premium",
-    "domain Indonesia",
-    "UMKM",
-    "domain .id",
+    "domain premium Indonesia",
+    "jual domain .id",
+    "beli domain premium",
+    "domain 4 karakter",
+    "domain singkat",
     "akuisisi domain",
+    "investasi domain",
+    "domain UMKM Indonesia",
     "PT. IMKJ",
   ],
-  authors: [{ name: "PT. IMKJ" }],
+  authors: [{ name: "PT. IMKJ", url: SITE_URL }],
+  creator: "PT. IMKJ",
+  publisher: "PT. IMKJ",
+  category: "technology",
   icons: {
     icon: "/favicon.svg",
   },
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "UMKM.id — Premium Digital Domain",
+    title: "UMKM.id Dijual — Domain Premium Indonesia",
     description:
-      "Satu Nama. Satu Identitas. Potensi Digital yang Besar. Domain premium untuk ekosistem UMKM Indonesia — kini ditawarkan seharga 1 Milyar Rupiah.",
+      "Domain premium UMKM.id tersedia untuk diakuisisi. Nama pendek, kuat, dan langsung dikenali 64 juta+ pelaku UMKM Indonesia. Ditawarkan 1 Milyar Rupiah — hubungi PT. IMKJ.",
+    url: "/",
     siteName: "UMKM.id",
     type: "website",
     locale: "id_ID",
   },
   twitter: {
     card: "summary_large_image",
-    title: "UMKM.id — Premium Digital Domain",
+    title: "UMKM.id Dijual — Domain Premium Indonesia",
     description:
-      "Domain premium untuk ekosistem UMKM Indonesia. Hubungi PT. IMKJ untuk informasi dan penawaran.",
+      "Domain premium UMKM.id tersedia untuk diakuisisi. Ditawarkan 1 Milyar Rupiah — hubungi PT. IMKJ: admin@umkm.id.",
+  },
+  // GEO: penargetan geografis Indonesia untuk mesin pencari & AI search.
+  other: {
+    "geo.region": "ID",
+    "geo.placename": "Indonesia",
+    ICBM: "-6.2088, 106.8456",
+    "content-language": "id-ID",
+    "revisit-after": "7 days",
+    "distribution": "global",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d0b08",
+  themeColor: "#fdfaf9",
 };
 
 export default function RootLayout({
