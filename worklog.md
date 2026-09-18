@@ -179,3 +179,18 @@ Work Log:
 Stage Summary:
 - Landing page kini punya badge hero besar beranimasi, ribbon "Domain for Sale" permanen di pojok, dan popup penawaran sekali per sesi.
 - SEO on-page lengkap (canonical, robots, OG/Twitter, geo, JSON-LD Product) + sitemap.xml + robots.txt — siap diindeks; setelah deploy di umkm.id, daftarkan sitemap di Google Search Console.
+
+---
+Task ID: 11
+Agent: Z.ai Code (main agent)
+Task: Pindahkan ribbon "Domain for Sale" ke pojok kiri atas + push ke GitHub.
+
+Work Log:
+- sale-ribbon.tsx: posisi diubah dari fixed kanan-bawah → fixed kiri-atas diagonal (-45°) di bawah navbar. Animasi masuk kini dari kiri (x:-48→0).
+- Iterasi visual 3x via Agent Browser (desktop 1280px & mobile 390px): posisi awal menabrak logo ".id" pada mobile dan huruf "D" badge; final: mobile -left-[58px] top-[102px] w-[185px], desktop sm:-left-[54px] sm:top-[108px] sm:w-[215px] — ujung ribbon berada tepat di bawah logo navbar, tidak menutupi logo/badge/CTA.
+- Verifikasi: ribbon terlihat di pojok kiri atas desktop & mobile, klik → scroll ke #kontak (scrollY 4325), console bersih, lint bersih.
+- Commit 298d0f5. Push GAGAL: "could not read Username" — tidak ada kredensial GitHub di environment (git-credentials/.netrc/env token/gh CLI semuanya tidak ada). Menunggu token baru dari user.
+
+Stage Summary:
+- Ribbon kini permanen di pojok kiri atas (selalu terlihat saat scroll), tanpa konflik dengan elemen mana pun.
+- 5 commit belum ter-push (61b642b, 2bb99a1, b42e2cf, 8ce6b97, 298d0f5) — push menunggu token GitHub baru.
