@@ -274,3 +274,28 @@ Stage Summary:
 - PENTING: user harus set RESEND_API_KEY + RESEND_FROM di Vercel Environment Variables
   (.env tidak ikut git) agar form kirim email berfungsi di produksi
 - Disarankan custom domain umkm.id via Cloudflare CNAME ke vercel
+
+---
+Task ID: 15
+Agent: main (Z.ai Code)
+Task: Optimasi SEO/GEO agar UMKM.id muncul untuk pencarian "umkm"
+
+Work Log:
+- Buat src/components/umkm/seo-content.tsx: artikel edukatif "Tentang UMKM Indonesia"
+  (definisi UU No.20/2008, stat 64juta+/61%PDB/97% tenaga kerja, nilai domain,
+  6 use case keyword-rich: marketplace/kemitraan/pembiayaan/kasir/edukasi/ekspor UMKM)
+- Buat src/components/umkm/faq.tsx: 7 FAQ accordion (shadcn) + export FAQ_ITEMS
+- page.tsx: JSON-LD +FAQPage (mirror FAQ_ITEMS), WebSite.about=Thing UMKM,
+  Organization.knowsAbout; mount SeoContent+Faq antara Offer dan Inquiry
+- layout.tsx: title/description/keywords diperluas (umkm, umkm indonesia,
+  usaha mikro kecil dan menengah, apa itu umkm, marketplace/kemitraan/pembiayaan UMKM dll)
+- navbar.tsx: tambah link #tentang-umkm & #faq
+- Lint 0 error; browser verify: section render ✓, accordion buka/tutup ✓,
+  JSON-LD valid [WebSite,Organization,Product,FAQPage] 7 Q ✓, mobile ✓
+- Commit 89103d3 push ke GitHub (5aca58f..89103d3)
+
+Stage Summary:
+- On-page SEO & GEO maksimal untuk kata "umkm"; FAQPage schema siap rich snippet
+- Catatan user: ranking #1 kata "umkm" generik butuh off-page (backlink/waktu);
+  target realistis cepat = query brand "umkm.id" & long-tail
+- User tetap perlu: submit Google Search Console + set env Vercel
