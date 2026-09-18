@@ -299,3 +299,23 @@ Stage Summary:
 - Catatan user: ranking #1 kata "umkm" generik butuh off-page (backlink/waktu);
   target realistis cepat = query brand "umkm.id" & long-tail
 - User tetap perlu: submit Google Search Console + set env Vercel
+
+---
+Task ID: 16
+Agent: main (Z.ai Code)
+Task: Analisa kenapa umkm.id tidak muncul di Google untuk "umkm"
+
+Work Log:
+- Web search "umkm.id": situs TIDAK muncul (baru Merriam-Webster/Instagram) → belum terindeks ulang
+- Web search site:umkm.id: ditemukan 3 halaman STALE situs LAMA (marketplace jadul):
+  /terms, /listing/auction-02, /marketplace?category=otomotif
+- curl umkm.id: 308 redirect → www.umkm.id → 200 dengan title baru → domain sudah terhubung Vercel+Cloudflare ✓
+- BUG ditemukan: canonical/metadataBase/sitemap/robots pakai apex https://umkm.id,
+  padahal final URL www.umkm.id → sinyal kanonik campur, memperlambat indeks
+- FIX: SITE_URL → https://www.umkm.id di layout.tsx, page.tsx, sitemap.ts, robots.txt
+- Lint 0 error, commit 1470912 push (89103d3..1470912)
+
+Stage Summary:
+- Situs live tapi Google belum re-index (umur hitungan hari + indeks lama menempel)
+- "umkm" generik dikuasai umkm.go.id (Kementerian) — realistis tak akan #1 jangka pendek
+- Prioritas user: Search Console verify + submit sitemap www + request indexing + backlink
