@@ -236,3 +236,26 @@ Stage Summary:
   via auto-isi aplikasi email pengunjung
 - Next step opsional: user isi SMTP_HOST/PORT/USER/PASS mailbox admin@umkm.id di .env
   agar terkirim 100% otomatis ke inbox
+
+---
+Task ID: 13
+Agent: main (Z.ai Code)
+Task: Aktivasi pengiriman email otomatis via Resend (user pakai Cloudflare Email Routing)
+
+Work Log:
+- Analisa setup user: Cloudflare Email Routing hanya forward masuk, tidak ada SMTP umkm.id
+- User daftar resend.com + verifikasi domain umkm.id (DKIM/SPF via Cloudflare, region Tokyo)
+- Isi .env: RESEND_API_KEY + RESEND_FROM="UMKM.id <noreply@umkm.id>"
+- Test curl POST /api/offer → {"ok":true,"delivered":true,"provider":"resend"} ✓
+- Browser E2E: isi form → submit → POST 200 → panel sukses tampil ✓
+- Uji klik nyata: reset form ✓, validasi 4 error tampil saat form kosong ✓
+- (Catatan teknis: 1x klik uji gagal karena stale ref Playwright, bukan bug produk;
+  requestSubmit + klik validasi membuktikan handler React berfungsi)
+
+Stage Summary:
+- Formulir kini mengirim email 100% OTOMATIS: form → /api/offer → Resend →
+  admin@umkm.id → Cloudflare forward → inbox asli user (bukdan101@gmail.com)
+- 2 email uji terkirim sukses dari noreply@umkm.id
+- API key user restricted "send only" (tidak bisa list) — praktik aman
+- Saran ke user: aktifkan DMARC p=none, cek spam Gmail untuk email pertama,
+  rotasi API key nanti karena pernah lewat chat
