@@ -9,6 +9,8 @@ const NAV_LINKS = [
   { href: "#nilai", label: "Nilai Premium" },
   { href: "#visi", label: "Visi" },
   { href: "#penawaran", label: "Penawaran" },
+  { href: "#tentang-umkm", label: "Tentang UMKM" },
+  { href: "#faq", label: "FAQ" },
   { href: "#kontak", label: "Kontak" },
 ];
 

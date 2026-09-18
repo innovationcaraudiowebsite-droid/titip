@@ -3,6 +3,8 @@ import Hero from "@/components/umkm/hero";
 import ValueProps from "@/components/umkm/value-props";
 import Vision from "@/components/umkm/vision";
 import Offer from "@/components/umkm/offer";
+import SeoContent from "@/components/umkm/seo-content";
+import Faq, { FAQ_ITEMS } from "@/components/umkm/faq";
 import Inquiry from "@/components/umkm/inquiry";
 import Footer from "@/components/umkm/footer";
 import SaleRibbon from "@/components/umkm/sale-ribbon";
@@ -11,7 +13,8 @@ import SalePopup from "@/components/umkm/sale-popup";
 const SITE_URL = "https://umkm.id";
 
 // Structured data (schema.org) — membantu Google & AI search (GEO)
-// memahami bahwa UMKM.id adalah produk domain premium yang dijual.
+// memahami bahwa UMKM.id adalah produk domain premium yang dijual,
+// beserta konteks entitas "UMKM" dan FAQ untuk rich snippet.
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -24,6 +27,17 @@ const jsonLd = {
       description:
         "Domain premium UMKM.id — tersedia untuk diakuisisi dari PT. IMKJ.",
       publisher: { "@id": `${SITE_URL}/#organization` },
+      about: {
+        "@type": "Thing",
+        name: "UMKM",
+        alternateName: [
+          "Usaha Mikro Kecil dan Menengah",
+          "UMKM Indonesia",
+          "MSME",
+        ],
+        description:
+          "Usaha Mikro, Kecil, dan Menengah — tulang punggung ekonomi Indonesia dengan 64 juta+ pelaku usaha.",
+      },
     },
     {
       "@type": "Organization",
@@ -35,6 +49,12 @@ const jsonLd = {
         "@type": "PostalAddress",
         addressCountry: "ID",
       },
+      knowsAbout: [
+        "UMKM",
+        "Usaha Mikro Kecil dan Menengah",
+        "Domain Premium Indonesia",
+        "Akuisisi Domain",
+      ],
     },
     {
       "@type": "Product",
@@ -56,6 +76,18 @@ const jsonLd = {
         priceValidUntil: "2027-12-31",
       },
     },
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/#faq`,
+      mainEntity: FAQ_ITEMS.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
   ],
 };
 
@@ -72,6 +104,8 @@ export default function Home() {
         <ValueProps />
         <Vision />
         <Offer />
+        <SeoContent />
+        <Faq />
         <Inquiry />
       </main>
       <Footer />

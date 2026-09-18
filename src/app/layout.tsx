@@ -20,11 +20,17 @@ const SITE_URL = "https://umkm.id";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "UMKM.id Dijual — Domain Premium 1 Milyar Rupiah | PT. IMKJ",
+  title: "UMKM.id — Domain Premium UMKM Indonesia Dijual 1 Milyar Rupiah | PT. IMKJ",
   description:
-    "Domain premium UMKM.id DIJUAL (domain for sale). Nama pendek 4 karakter untuk ekosistem UMKM Indonesia — 64 juta+ pelaku usaha. Ditawarkan 1 Milyar Rupiah, transaksi aman melalui notaris. Hubungi PT. IMKJ: admin@umkm.id.",
+    "UMKM.id — domain premium untuk Usaha Mikro, Kecil, dan Menengah (UMKM) Indonesia. Nama 4 karakter untuk 64 juta+ pelaku UMKM: marketplace, kemitraan, pembiayaan, aplikasi UMKM. Dijual 1 Milyar Rupiah, transaksi aman melalui notaris. Hubungi PT. IMKJ: admin@umkm.id.",
   keywords: [
+    "UMKM",
     "UMKM.id",
+    "UMKM Indonesia",
+    "usaha mikro kecil dan menengah",
+    "apa itu UMKM",
+    "UMKM adalah",
+    "domain UMKM",
     "domain UMKM.id dijual",
     "domain for sale",
     "domain premium",
@@ -35,7 +41,11 @@ export const metadata: Metadata = {
     "domain singkat",
     "akuisisi domain",
     "investasi domain",
-    "domain UMKM Indonesia",
+    "marketplace UMKM",
+    "kemitraan UMKM",
+    "pembiayaan UMKM",
+    "aplikasi UMKM",
+    "platform UMKM",
     "PT. IMKJ",
   ],
   authors: [{ name: "PT. IMKJ", url: SITE_URL }],
@@ -60,9 +70,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "UMKM.id Dijual — Domain Premium Indonesia",
+    title: "UMKM.id — Domain Premium UMKM Indonesia Dijual",
     description:
-      "Domain premium UMKM.id tersedia untuk diakuisisi. Nama pendek, kuat, dan langsung dikenali 64 juta+ pelaku UMKM Indonesia. Ditawarkan 1 Milyar Rupiah — hubungi PT. IMKJ.",
+      "Domain premium UMKM.id untuk ekosistem Usaha Mikro, Kecil, dan Menengah Indonesia. Nama 4 karakter, langsung dikenali 64 juta+ pelaku UMKM. Ditawarkan 1 Milyar Rupiah — hubungi PT. IMKJ.",
     url: "/",
     siteName: "UMKM.id",
     type: "website",
@@ -70,9 +80,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "UMKM.id Dijual — Domain Premium Indonesia",
+    title: "UMKM.id — Domain Premium UMKM Indonesia Dijual",
     description:
-      "Domain premium UMKM.id tersedia untuk diakuisisi. Ditawarkan 1 Milyar Rupiah — hubungi PT. IMKJ: admin@umkm.id.",
+      "Domain premium UMKM.id untuk ekosistem UMKM Indonesia. Ditawarkan 1 Milyar Rupiah — hubungi PT. IMKJ: admin@umkm.id.",
   },
   // GEO: penargetan geografis Indonesia untuk mesin pencari & AI search.
   other: {
