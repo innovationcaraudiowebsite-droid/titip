@@ -16,7 +16,7 @@ const baskerville = Libre_Baskerville({
   style: ["normal", "italic"],
 });
 
-const SITE_URL = "https://umkm.id";
+const SITE_URL = "https://www.umkm.id";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

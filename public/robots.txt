@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://umkm.id/sitemap.xml
+Sitemap: https://www.umkm.id/sitemap.xml

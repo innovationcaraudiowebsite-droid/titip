@@ -10,7 +10,7 @@ import Footer from "@/components/umkm/footer";
 import SaleRibbon from "@/components/umkm/sale-ribbon";
 import SalePopup from "@/components/umkm/sale-popup";
 
-const SITE_URL = "https://umkm.id";
+const SITE_URL = "https://www.umkm.id";
 
 // Structured data (schema.org) — membantu Google & AI search (GEO)
 // memahami bahwa UMKM.id adalah produk domain premium yang dijual,
