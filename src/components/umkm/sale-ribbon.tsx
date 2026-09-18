@@ -3,18 +3,18 @@
 import { motion } from "framer-motion";
 
 /**
- * Ribbon sudut kanan-bawah "Domain for Sale" — selalu terlihat saat
- * menggulir, bersinar dengan sweep cahaya, dan mengarah ke #kontak.
+ * Ribbon "Domain for Sale" di pojok kiri atas — diagonal di bawah navbar,
+ * bersinar dengan sweep cahaya, dan mengarah ke #kontak.
  */
 export default function SaleRibbon() {
   return (
     <motion.a
       href="#kontak"
       aria-label="Domain for Sale — ajukan penawaran Anda"
-      initial={{ opacity: 0, x: 48 }}
+      initial={{ opacity: 0, x: -48 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 1.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="group fixed -right-[52px] bottom-[calc(2.75rem+env(safe-area-inset-bottom))] z-40 w-[200px] -rotate-45 sm:-right-[56px] sm:bottom-12 sm:w-[230px]"
+      className="group fixed -left-[58px] top-[102px] z-40 w-[185px] -rotate-45 sm:-left-[54px] sm:top-[108px] sm:w-[215px]"
     >
       <span className="relative flex h-10 items-center justify-center overflow-hidden bg-[linear-gradient(115deg,oklch(0.42_0.18_27),oklch(0.56_0.21_27)_50%,oklch(0.4_0.17_27))] shadow-[0_12px_32px_-12px_oklch(0.44_0.18_27/80%)] transition-all duration-300 group-hover:brightness-110 sm:h-11">
         <span
