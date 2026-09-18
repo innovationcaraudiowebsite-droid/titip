@@ -319,3 +319,20 @@ Stage Summary:
 - Situs live tapi Google belum re-index (umur hitungan hari + indeks lama menempel)
 - "umkm" generik dikuasai umkm.go.id (Kementerian) — realistis tak akan #1 jangka pendek
 - Prioritas user: Search Console verify + submit sitemap www + request indexing + backlink
+
+---
+Task ID: 17
+Agent: main (Z.ai Code)
+Task: Analisa laporan "Why pages aren't indexed" Search Console
+
+Work Log:
+- Verifikasi curl: homepage/sitemap/robots = 200; URL lama (terms, listing, marketplace) = 404 → situs baru sehat
+- Analisa: 14 error 5xx = sisa crawl hosting lama saat DNS transisi (historis); 2x 404 = halaman lama mati (wajar);
+  1x "Crawled - currently not indexed" = kemungkinan homepage, perlu Request Indexing
+- Buat src/app/not-found.tsx: 404 bermerek + CTA "Lihat Penawaran UMKM.id" untuk trafik sisa URL lama
+- Lint 0 error, commit + push
+
+Stage Summary:
+- Laporan GSC = proses pembersihan normal situs lama, bukan masalah situs baru
+- User harus: klik baris "Crawled - currently not indexed" → lihat URL → Request Indexing;
+  klik "Validate Fix" pada 5xx; pastikan sitemap www sudah submit
