@@ -259,3 +259,18 @@ Stage Summary:
 - API key user restricted "send only" (tidak bisa list) — praktik aman
 - Saran ke user: aktifkan DMARC p=none, cek spam Gmail untuk email pertama,
   rotasi API key nanti karena pernah lewat chat
+
+---
+Task ID: 14
+Agent: main (Z.ai Code)
+Task: Push ke GitHub untuk auto-deploy Vercel
+
+Work Log:
+- Verifikasi tidak ada runtime DB (lib/db.ts tidak diimpor) → aman untuk Vercel
+- Push bf0ab52..5aca58f main -> main, verifikasi remote HEAD == local (5aca58f)
+
+Stage Summary:
+- Semua commit termasuk fitur form email otomatis sudah di GitHub
+- PENTING: user harus set RESEND_API_KEY + RESEND_FROM di Vercel Environment Variables
+  (.env tidak ikut git) agar form kirim email berfungsi di produksi
+- Disarankan custom domain umkm.id via Cloudflare CNAME ke vercel
