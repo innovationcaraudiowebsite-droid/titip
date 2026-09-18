@@ -211,3 +211,28 @@ Stage Summary:
 - Push sukses: 2e87a9a..8cea7ed main -> main (repo innovationcaraudiowebsite-droid/titip)
 - Commit ter-push termasuk: ribbon pojok kiri atas (298d0f5), badge hero + popup + SEO/GEO (b42e2cf)
 - Token TIDAK disimpan di manapun; user diingatkan untuk revoke token setelah sesi ini
+
+---
+Task ID: 12
+Agent: main (Z.ai Code)
+Task: Formulir "Kirim Email Penawaran" — kirim email langsung ke admin@umkm.id
+
+Work Log:
+- Riset jalur pengiriman: FormSubmit/Web3Forms diblokir Cloudflare server-side; z-ai-sdk tanpa fitur email
+- Install nodemailer 10
+- Buat API POST /api/offer: zod validation, rate limit 3 req/15 menit/IP, honeypot anti-bot
+- Pengiriman bertingkat: SMTP (SMTP_HOST/PORT/USER/PASS) → Resend (RESEND_API_KEY) → fallback mailtoUrl
+- Email HTML tema merah UMKM.id, replyTo pengunjung, subject dinamis per kategori
+- Rewrite inquiry.tsx: form kategori chips (Investor/Institusi/Startup/Marketplace/Organisasi),
+  nama, email, telepon/WA, perusahaan, nilai, pesan; panel sukses; toast; tombol kirim ulang
+- Template SMTP/Resend ditambahkan (komentar) di .env
+- Lint 0 error; API test: 200 delivered=false+mailtoUrl (fallback), 422 validasi
+- Browser verify desktop+mobile: chips, isi form, submit → toast "Menyiapkan email…" → panel
+  "Penawaran Anda Terkirim"; reset "Kirim penawaran lain" ✓; tanpa error konsol
+
+Stage Summary:
+- Commit bf0ab52 ter-push ke GitHub (8cea7ed..bf0ab52 main)
+- Formulir kini mengirim email langsung begitu SMTP env diisi; tanpa SMTP tetap berfungsi
+  via auto-isi aplikasi email pengunjung
+- Next step opsional: user isi SMTP_HOST/PORT/USER/PASS mailbox admin@umkm.id di .env
+  agar terkirim 100% otomatis ke inbox
