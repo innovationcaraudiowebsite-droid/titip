@@ -160,3 +160,22 @@ Work Log:
 
 Stage Summary:
 - Seluruh tampilan harga utama kini "1 Milyar Rupiah"; angka persis Rp1.000.000.000 hanya muncul sebagai keterangan italic kecil ("setara ...") di hero & kartu penawaran agar nilai pasti harga tetap jelas.
+
+---
+Task ID: 10
+Agent: Z.ai Code (main agent)
+Task: Perbesar & animasikan badge hero, tambah ribbon + popup "Domain for Sale", perbaiki SEO on-page & GEO, push ke GitHub.
+
+Work Log:
+- Badge hero: teks xs→sm/base/lg bold, tambah shimmer gradient (.text-shimmer-red), sweep cahaya (.animate-badge-shine), bob float framer-motion, dot pulse diperbesar.
+- Ribbon baru src/components/umkm/sale-ribbon.tsx: fixed pojok kanan-bawah, diagonal -45°, gradient merah + sweep cahaya (.animate-ribbon-shine), klik → #kontak, muncul delay 1,4s. Aman dari navbar (z-40).
+- Popup baru src/components/umkm/sale-popup.tsx: muncul 2,4s sekali per sesi (sessionStorage), header pita "DOMAIN FOR SALE", harga 1 Milyar Rupiah, CTA #kontak + mailto admin@umkm.id, tutup via X/Esc/klik latar + body scroll lock + role dialog.
+- layout.tsx: metadataBase https://umkm.id, title/description dengan kata kunci "dijual/domain for sale", 13 keywords, canonical, robots googleBot (max-image-preview large), OG+Twitter lengkap, geo meta (geo.region ID, ICBM Jakarta, content-language id-ID), themeColor diperbaiki dari sisa tema gelap #0d0b08 → #fdfaf9, icons favicon dikembalikan.
+- page.tsx: JSON-LD @graph (WebSite + Organization + Product/Offer IDR 1000000000, InStock, priceValidUntil 2027) + pasang SaleRibbon & SalePopup.
+- app/sitemap.ts baru (sitemap.xml valid). app/robots.ts dibuat lalu DIHAPUS karena konflik dengan public/robots.txt yang sudah ada; public/robots.txt diperbarui dengan direktif Sitemap.
+- Verifikasi Agent Browser: popup tampil di desktop & mobile (bottom-sheet), Esc menutup + flag tersimpan, reload → popup tidak muncul lagi; ribbon terlihat & klik → scroll ke #kontak (scrollY 4325); badge besar teranimasi; meta geo/canonical/robots/JSON-LD terverifikasi di DOM; robots.txt & sitemap.xml 200; lint bersih; console tanpa error.
+- Commit b42e2cf. Push BELUM dilakukan — tidak ada kredensial GitHub di environment; menunggu token baru dari user.
+
+Stage Summary:
+- Landing page kini punya badge hero besar beranimasi, ribbon "Domain for Sale" permanen di pojok, dan popup penawaran sekali per sesi.
+- SEO on-page lengkap (canonical, robots, OG/Twitter, geo, JSON-LD Product) + sitemap.xml + robots.txt — siap diindeks; setelah deploy di umkm.id, daftarkan sitemap di Google Search Console.
