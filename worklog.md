@@ -128,3 +128,20 @@ Work Log:
 Stage Summary:
 - Form kini selalu punya jalur ke admin@umkm.id: online (DB) atau fallback email via aplikasi email pengunjung.
 - Kirim email otomatis penuh (server-side) menunggu user memilih layanan (Resend disarankan; SMTP nodemailer alternatif).
+
+---
+Task ID: 8
+Agent: Z.ai Code (main agent)
+Task: Hapus bagian "Formulir Penawaran" dari section Kontak karena tidak bisa kirim email; ganti dengan kontak email langsung.
+
+Work Log:
+- inquiry.tsx ditulis ulang: seluruh form (nama, email, telepon, perusahaan, pesan, tombol "Kirim Penawaran") DIHAPUS. react-hook-form, zod, state submit, dan fallback card tidak lagi dipakai.
+- Pengganti: kartu kontak terpusat (brand-frame) — ikon Mail, "HUBUNGI / PT. IMKJ", pill email admin@umkm.id, tombol besar "Kirim Email Penawaran" (mailto:admin@umkm.id dengan subject "Penawaran Domain UMKM.id" + body template siap isi: nama, email, telepon, perusahaan, nilai penawaran, rencana pengembangan). Catatan: "tanpa perlu mengisi formulir".
+- "Alur Akuisisi" (3 langkah: Hubungi Kami / Negosiasi & Verifikasi / Transaksi Aman via notaris) dipertahankan sebagai 3 kartu horizontal di bawah kartu kontak.
+- src/app/api/inquiry/route.ts DIHAPUS (tidak terpakai lagi). Model Inquiry dihapus dari prisma/schema.prisma, db:push sukses (Prisma Client regenerasi).
+- Navbar (#kontak, tombol "Ajukan Penawaran") dan footer tidak berubah — tetap mengarah ke section Kontak / mailto.
+- Verifikasi Agent Browser: form benar-benar hilang dari DOM; 2 link mailto valid (pill email + CTA dengan subject/body terisi); desktop & mobile (390px) render rapi; tombol CTA h-14 (56px, touch-friendly); console bersih tanpa error. Lint bersih.
+
+Stage Summary:
+- Section Kontak kini: judul + kartu kontak email langsung (mailto, selalu berfungsi tanpa server/DB) + 3 kartu alur akuisisi. Form dan API /api/inquiry sepenuhnya dihapus beserta model DB-nya.
+- Alasan desain: mailto membuka aplikasi email pengunjung dengan template siap kirim — satu-satunya jalur "kirim email" yang dijamin bekerja tanpa layanan email pihak ketiga. Jika nanti user ingin kirim email otomatis server-side, tinggal tambah Resend/SMTP dan buat form baru.

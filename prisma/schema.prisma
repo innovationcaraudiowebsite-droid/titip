@@ -12,13 +12,3 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
-
-model Inquiry {
-  id           String   @id @default(cuid())
-  name         String
-  email        String
-  phone        String?
-  organization String?
-  message      String
-  createdAt    DateTime @default(now())
-}
