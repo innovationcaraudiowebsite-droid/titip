@@ -14,12 +14,6 @@ const AUDIENCES = [
   "Organisasi",
 ];
 
-function formatRupiah(value: number): string {
-  return new Intl.NumberFormat("id-ID", {
-    maximumFractionDigits: 0,
-  }).format(Math.round(value));
-}
-
 function CountUpPrice() {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -36,7 +30,16 @@ function CountUpPrice() {
       const progress = Math.min(elapsed / duration, 1);
       // easeOutExpo for a dramatic finish
       const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      setDisplay(formatRupiah(eased * 1_000_000_000));
+      if (progress === 1) {
+        setDisplay("1");
+      } else {
+        setDisplay(
+          eased.toLocaleString("id-ID", {
+            minimumFractionDigits: 1,
+            maximumFractionDigits: 1,
+          })
+        );
+      }
       if (progress < 1) rafId = requestAnimationFrame(tick);
     };
 
@@ -49,7 +52,7 @@ function CountUpPrice() {
       ref={ref}
       className="text-red-gradient-bright font-display text-[clamp(1.9rem,8vw,6rem)] font-bold leading-tight tracking-tight"
     >
-      Rp{display}
+      {display} Milyar Rupiah
     </span>
   );
 }
@@ -139,7 +142,7 @@ export default function Offer() {
               <CountUpPrice />
             </div>
             <p className="mt-3 font-display text-xl italic text-white/60 sm:text-2xl">
-              Satu Miliar Rupiah
+              setara Rp1.000.000.000
             </p>
 
             <div

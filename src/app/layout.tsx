@@ -19,7 +19,7 @@ const baskerville = Libre_Baskerville({
 export const metadata: Metadata = {
   title: "UMKM.id — Domain Premium untuk Ekosistem UMKM Indonesia",
   description:
-    "UMKM.id adalah domain premium yang merepresentasikan ekosistem Usaha Mikro, Kecil, dan Menengah Indonesia. Satu Nama. Satu Identitas. Potensi Digital yang Besar. Ditawarkan seharga Rp1.000.000.000.",
+    "UMKM.id adalah domain premium yang merepresentasikan ekosistem Usaha Mikro, Kecil, dan Menengah Indonesia. Satu Nama. Satu Identitas. Potensi Digital yang Besar. Ditawarkan seharga 1 Milyar Rupiah.",
   keywords: [
     "UMKM.id",
     "domain premium",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "UMKM.id — Premium Digital Domain",
     description:
-      "Satu Nama. Satu Identitas. Potensi Digital yang Besar. Domain premium untuk ekosistem UMKM Indonesia — kini ditawarkan seharga Rp1.000.000.000.",
+      "Satu Nama. Satu Identitas. Potensi Digital yang Besar. Domain premium untuk ekosistem UMKM Indonesia — kini ditawarkan seharga 1 Milyar Rupiah.",
     siteName: "UMKM.id",
     type: "website",
     locale: "id_ID",

@@ -99,10 +99,10 @@ export default function Hero() {
               Harga Penawaran
             </span>
             <span className="text-red-gradient-bright font-display text-[2.1rem] font-bold tracking-tight sm:text-5xl md:text-[4.5rem]">
-              Rp1.000.000.000
+              1 Milyar Rupiah
             </span>
             <span className="font-display text-base italic text-white/55 sm:text-lg">
-              satu miliar rupiah
+              setara Rp1.000.000.000
             </span>
           </div>
         </motion.div>

@@ -46,7 +46,7 @@ export default function Footer() {
             <span className="font-semibold text-foreground/80">
               UMKM.id — Premium Digital Domain
             </span>{" "}
-            · Rp1.000.000.000
+            · 1 Milyar Rupiah
           </p>
           <p>
             © {new Date().getFullYear()} PT. IMKJ. Hubungi kami untuk informasi

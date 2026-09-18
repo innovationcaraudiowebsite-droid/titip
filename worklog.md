@@ -145,3 +145,18 @@ Work Log:
 Stage Summary:
 - Section Kontak kini: judul + kartu kontak email langsung (mailto, selalu berfungsi tanpa server/DB) + 3 kartu alur akuisisi. Form dan API /api/inquiry sepenuhnya dihapus beserta model DB-nya.
 - Alasan desain: mailto membuka aplikasi email pengunjung dengan template siap kirim — satu-satunya jalur "kirim email" yang dijamin bekerja tanpa layanan email pihak ketiga. Jika nanti user ingin kirim email otomatis server-side, tinggal tambah Resend/SMTP dan buat form baru.
+
+---
+Task ID: 9
+Agent: Z.ai Code (main agent)
+Task: Ganti semua tulisan harga "Rp1.000.000.000" menjadi "1 Milyar Rupiah".
+
+Work Log:
+- hero.tsx: teks harga besar pada plaque "Harga Penawaran" diganti "1 Milyar Rupiah"; subtitle italic "satu miliar rupiah" diganti "setara Rp1.000.000.000" (angka pasti tetap tersedia sebagai keterangan).
+- offer.tsx: CountUpPrice ditulis ulang — animasi count-up kini menghitung 0,0 → 1,0 (format id-ID) lalu berhenti tepat di "1 Milyar Rupiah"; fungsi formatRupiah dihapus (tidak terpakai); subtitle "Satu Miliar Rupiah" diganti "setara Rp1.000.000.000".
+- footer.tsx: "· Rp1.000.000.000" → "· 1 Milyar Rupiah".
+- layout.tsx: description & openGraph "seharga Rp1.000.000.000" → "seharga 1 Milyar Rupiah" (2 lokasi).
+- Verifikasi Agent Browser: hero plaque, kartu penawaran (count-up berakhir tepat "1 Milyar Rupiah"), dan footer tampil benar; meta description ter-update; console tanpa error; lint bersih.
+
+Stage Summary:
+- Seluruh tampilan harga utama kini "1 Milyar Rupiah"; angka persis Rp1.000.000.000 hanya muncul sebagai keterangan italic kecil ("setara ...") di hero & kartu penawaran agar nilai pasti harga tetap jelas.
